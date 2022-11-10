@@ -1,0 +1,131 @@
+User      
+	id
+	first_name
+	last_name
+	username
+	password
+
+Role
+	admin 
+	client
+
+Device
+	id
+	description
+	address
+	max hourly energy consum
+	user_id
+
+En cons
+	id
+	device_id
+	timestamp
+	energy consumption
+
+o categorie are mai multe subcategorii
+categorie OneToMany
+subcategorie ManyToOne
+
+un user are unul sau mai multe device-uri
+user OneToMany
+device ManyToOne
+
+un device are mai multe en consum
+device OneToMany
+en cons ManyToOne
+
+{
+    "firstName": "Izabella",
+    "lastName": "Bartalus",
+    "username": "admin-izabella",
+    "password": "password",
+    "roleType": "Admin"
+}
+
+{
+    "firstName": "Beatrice",
+    "lastName": "Soponari",
+    "username": "client-beatrice",
+    "password": "password",
+    "roleType": "Client"
+}
+
+
+    <mat-form-field class="full-width-form">
+      <mat-label>Client Id</mat-label>
+      <input matInput formControlName="clientId">
+    </mat-form-field>
+
+    <mat-form-field class="full-width-form">
+      <mat-label>Device Id</mat-label>
+      <input matInput formControlName="deviceId">
+    </mat-form-field>
+
+
+
+
+
+# pull official base image
+FROM node:latest as builder
+
+# set working directory
+WORKDIR /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# install app dependencies
+COPY package.json ./
+# COPY package-lock.json ./
+RUN npm install --force
+
+# add app
+COPY . ./
+
+# start app
+CMD ["npm", "start"]
+
+	
+
+
+
+
+
+
+
+
+-----------------------------------------------------------
+FROM node:14.2.0-alpine3.11 as build
+WORKDIR /app
+
+RUN npm install -g @angular/cli
+
+COPY ./package.json .
+RUN npm install
+COPY . .
+RUN ng build
+
+FROM nginx as runtime
+COPY --from=build /usr/share/nginx/html
+
+
+
+
+
+
+
+
+
+  sd-container:
+    image: fe
+    container_name: sd-container
+    ports:
+      - '80:80'
+    build: 
+      context: ./angular-demo-app
+    environment:
+      NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx
+      NGINX_BASE: '' 
+      NGINX_BASE_SLASH: /
+	
+
