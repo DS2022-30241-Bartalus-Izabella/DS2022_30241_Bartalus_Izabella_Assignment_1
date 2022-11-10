@@ -1,0 +1,37 @@
+<div class="client_list_container">
+  <h1>Welcome on the clients list page! </h1>
+  <h3>Here you can see all clients and perform operations on clients</h3>
+
+  <button class="add_new_client" mat-button [routerLink]="'/register'" routerLinkActive="active" ariaCurrentWhenActive="page">Add new users</button>
+
+  <h1><strong>Clients list:</strong> </h1>
+  <table class="client_table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>First name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+      <th>Role</th>
+      <th>Edit client's details</th>
+      <th>Delete client</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="clients$ | async as clients$ else noData">
+      <tr *ngFor="let client of clients$">
+        <td>{{client.id}}</td>
+        <td>{{client.firstName}}</td>
+        <td>{{client.lastName}}</td>
+        <td>{{client.username}}</td>
+        <td>{{client.roleType}}</td>
+        <td> <button class="edit_client_button" routerLink="/edit-user/{{client.id}}" mat-button>Edit user</button>
+        <td> <button class="delete_client_button" (click)="deleteUser(client.id)" mat-button >Delete user</button>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+
+</div>
+<ng-template #noData>No Data Available</ng-template>
+<button class="logout-button" (click)="logout()" routerLink="/login">LOG OUT</button>

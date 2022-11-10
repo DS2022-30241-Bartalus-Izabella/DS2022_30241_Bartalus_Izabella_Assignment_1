@@ -1,0 +1,22 @@
+.my_devices_home_container {
+  padding: 20px;
+}
+
+.user_device_table {
+  width: 70%;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 20px;
+}
+
+.logout-button{
+  margin-top: 100px;
+  font-size: 20px;
+  height: 70px;
+  width: 200px;
+  padding: 0;
+  color: white;
+  background-color: #04AA6D;
+  border: 0;
+  border-radius: 5px;
+}

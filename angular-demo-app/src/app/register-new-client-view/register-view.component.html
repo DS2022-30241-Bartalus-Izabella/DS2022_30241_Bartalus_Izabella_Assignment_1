@@ -1,0 +1,41 @@
+<form class="signup_form" [formGroup]="signUpForm">
+  <h1>Sign Up</h1>
+  <h4>Please fill in this form to create an account.</h4>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>First name</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Last name</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username">
+  </mat-form-field>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Role</mat-label>
+    <input type="text" matInput formControlName="role" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let role of roles | keyvalue" [value]="role.value">
+        {{role.key}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <div class="signup_buttons_container">
+    <button class="signup_btn" (click)="register()" mat-button>Sign Up</button>
+    <button class="cancel_btn" (click)="discardChanges()" mat-button>Cancel</button>
+  </div>
+</form>
+<button class="logout-button" (click)="logout()" routerLink="/login">LOG OUT</button>
+

@@ -1,0 +1,35 @@
+<div class="device_list_container">
+  <h1>Welcome on the devices list page! </h1>
+  <h3>Here you can see all devices and perform operations on them</h3>
+
+  <button class="add_new_device" mat-button [routerLink]="'/register-device'" routerLinkActive="active" ariaCurrentWhenActive="page">Add new device</button>
+
+  <h1><strong>Devices list:</strong> </h1>
+  <table class="device_table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Max Hourly Energy Consumption</th>
+      <th>Edit device's details</th>
+      <th>Delete device</th>
+    </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="devices$ | async as devices$ else noData">
+          <tr *ngFor="let device of devices$">
+            <td>{{device.id}}</td>
+            <td>{{device.description}}</td>
+            <td>{{device.address}}</td>
+            <td>{{device.maxHourlyEnergyConsumption}}</td>
+            <td> <button class="edit_device_button" routerLink="/edit-device/{{device.id}}" mat-button >Edit device</button>
+            <td> <button class="delete_device_button" (click)="deleteDevice(device.id)"mat-button >Delete device</button>
+          </tr>
+        </ng-container>
+    </tbody>
+  </table>
+
+</div>
+<ng-template #noData>No Data Available</ng-template>
+<button class="logout-button" (click)="logout()" routerLink="/login">LOG OUT</button>

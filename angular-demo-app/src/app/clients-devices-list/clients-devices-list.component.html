@@ -1,0 +1,29 @@
+<div class="my_devices_home_container">
+  <h1><strong>Welcome to the Online Energy Utility Platform!</strong> </h1>
+
+  <h3>My devices:</h3>
+  <table class="user_device_table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Max Hourly Energy Consumption</th>
+    </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="devices$ | async as devices$ else noData">
+          <tr *ngFor="let device of devices$">
+            <td>{{device.id}}</td>
+            <td>{{device.description}}</td>
+            <td>{{device.address}}</td>
+            <td>{{device.maxHourlyEnergyConsumption}}</td>
+          </tr>
+        </ng-container>
+    </tbody>
+  </table>
+
+
+</div>
+<ng-template #noData>No Data Available</ng-template>
+<button class="logout-button" (click)="logout()" routerLink="/login">LOG OUT</button>

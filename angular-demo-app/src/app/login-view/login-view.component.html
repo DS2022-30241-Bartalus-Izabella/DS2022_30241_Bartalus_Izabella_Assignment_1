@@ -1,0 +1,17 @@
+<form class="login_form" [formGroup]="loginForm">
+  <h1><strong>Online Energy Utility Platform</strong> </h1>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" formControlName="username">
+  </mat-form-field>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+
+  <button class="login_button" (click)="login()" mat-button>LOG IN</button>
+
+</form>
+

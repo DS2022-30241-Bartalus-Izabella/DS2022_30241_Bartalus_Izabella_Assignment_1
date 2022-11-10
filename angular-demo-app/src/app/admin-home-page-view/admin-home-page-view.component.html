@@ -1,0 +1,32 @@
+<div class="admin_home_container">
+  <h1><strong>Welcome to the Online Energy Utility Platform!</strong> </h1>
+
+  <h2>Check on users:</h2>
+  <button class="view_users_button" mat-button [routerLink]="'/clients'" routerLinkActive="active" ariaCurrentWhenActive="page">View Users</button>
+
+  <h2>Check on devices:</h2>
+  <button class="view_devices_button" mat-button [routerLink]="'/devices'" routerLinkActive="active" ariaCurrentWhenActive="page">View Devices</button>
+
+  <h2 class="assign_label">Assign a device to a user:</h2>
+  <form class="assign_form" [formGroup]="mapForm">
+    <label class="device_label_id">User id:</label>
+    <mat-form-field class="full-width-form">
+      <mat-label>User Id</mat-label>
+      <input matInput formControlName="clientId">
+    </mat-form-field>
+    <br>
+    <label class="client_label_id">Device id:</label>
+    <mat-form-field class="full-width-form">
+      <mat-label>Device Id</mat-label>
+      <input matInput formControlName="deviceId">
+    </mat-form-field>
+    <div class="admin_home_buttons_container">
+      <button class="assign_button" (click)="mapDeviceToAUser()" mat-button >Submit</button>
+      <button class="cancel_button" (click)="discardChanges()" mat-button >Cancel</button>
+    </div>
+  </form>
+
+</div>
+
+<button class="logout-button" (click)="logout()" routerLink="/login">LOG OUT</button>
+

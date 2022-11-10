@@ -1,0 +1,84 @@
+.admin_home_container {
+  padding: 20px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.view_users_button {
+  font-size: 20px;
+  height: 70px;
+  width: 200px;
+  padding: 0;
+  color: white;
+  background-color: #04AA6D;
+}
+
+.view_devices_button {
+  font-size: 20px;
+  height: 70px;
+  width: 200px;
+  padding: 0;
+  color: white;
+  background-color: #04AA6D;
+}
+
+.assign_label {
+  padding-top: 70px;
+}
+
+.device_label_id {
+  font-size: 20px;
+  margin-right: 5px;
+  margin-bottom: 30px;
+}
+
+.device_input_text{
+  margin-bottom: 30px;
+  font-size: 20px;
+  width: 100px;
+}
+
+.client_label_id {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.client_input_text {
+  margin-bottom: 30px;
+  font-size: 20px;
+  width: 100px;
+}
+
+.assign_button {
+  font-size: 20px;
+  height: 70px;
+  width: 200px;
+  color: white;
+  background-color: #04AA6D;
+  margin-right: 20px;
+  margin-right: 20px;
+}
+
+.logout-button{
+  margin-top: 100px;
+  font-size: 20px;
+  height: 70px;
+  width: 200px;
+  padding: 0;
+  color: white;
+  background-color: #04AA6D;
+  border: 0;
+  border-radius: 5px;
+  float: right;
+}
+
+.cancel_button {
+  font-size: 20px;
+  height: 70px;
+  width: 200px;
+  color: white;
+  background-color: #04AA6D;
+}
+

@@ -1,0 +1,25 @@
+<form class="signup_form_for_devices" [formGroup]="signUpFormForDevices">
+  <h1>Create a new device</h1>
+  <h4>Please fill in this form to create a device.</h4>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description">
+  </mat-form-field>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Address</mat-label>
+    <input matInput formControlName="address">
+  </mat-form-field>
+
+  <mat-form-field class="full-width-form">
+    <mat-label>Maximum hourly energy consumption</mat-label>
+    <input matInput formControlName="maxHourlyEnergyConsumption">
+  </mat-form-field>
+
+  <div class="signup_buttons_container">
+    <button class="register_device_btn" (click)="createDevice()" mat-button>Register device</button>
+    <button class="cancel_registration_btn" (click)="discardChanges()" mat-button>Cancel</button>
+  </div>
+</form>
+<button class="logout-button" (click)="logout()" routerLink="/login">LOG OUT</button>
